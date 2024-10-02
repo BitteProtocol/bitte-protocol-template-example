@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev & make-agent dev --port 3000",
-    "build": "next build & make-agent build",
+    "dev": "concurrently \"next dev\" \"make-agent dev --port 3000\"",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,20 +13,21 @@
     "@mintbase-js/sdk": "^0.6.4",
     "@scalar/api-reference": "^1.25.10",
     "@scalar/nextjs-api-reference": "^0.4.85",
-    "make-agent": "^0.0.8",
+    "make-agent": "^0.0.12-rc.0",
     "next": "14.2.9",
     "react": "^18",
     "react-dom": "^18",
     "vercel-url": "^0.2.1"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^9.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.9",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.9"
+    "typescript": "^5"
   }
 }
