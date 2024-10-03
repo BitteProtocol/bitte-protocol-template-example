@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
-import bitteDevJson from "@/bitte.dev.json";
 import { DEPLOYMENT_URL } from "vercel-url";
+
+let bitteDevJson: { url?: string; };
+try {
+    bitteDevJson = require("@/bitte.dev.json");
+} catch (error) {
+    console.warn("Failed to import bitte.dev.json, using default values");
+    bitteDevJson = { url: undefined };
+}
 
 export async function GET() {
     const pluginData = {
